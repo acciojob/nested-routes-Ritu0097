@@ -1,19 +1,19 @@
-import React from "react";
-import './../styles/App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
-
-const App = () => {
+import Home from './Home';
+import Category from './Category';
+import Item from './Item';
+function App() {
   return (
     <div>
-      {/* Do not remove the main div */}
-      <Router>
-        <Switch>
-          <Route path="/" render={() => <Layout />} />
-        </Switch>
-      </Router>
+      <Layout />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/category/:categoryId" element={<Category />} />
+        <Route path="/item/:itemId" element={<Item />} />
+      </Routes>
     </div>
-  )
+  );
 }
 
 export default App;

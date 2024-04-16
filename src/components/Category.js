@@ -1,42 +1,35 @@
-import React from 'react';
-import { useParams, Link, Route, Switch } from 'react-router-dom';
+// Category.jsx
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-function Category() {
-  const { categoryName } = useParams();
+const Category = () => {
+  const { categoryId, categoryItem } = useParams();
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  // Handle item click
+  const handleItemClick = (item, e) => {
+    e.preventDefault(); // Prevent default link behavior
+    setSelectedItem(item);
+  };
 
   return (
     <div>
-      <h2>Women Items</h2>
+      {/* Render the paragraph tag initially */}
+      <p>Items:</p>
       <ul>
-        <li>
-          <Link to={`/category/${categoryName}/grooming`}>Grooming</Link>
-        </li>
-        <li>
-          <Link to={`/category/${categoryName}/shirt`}>Shirt</Link>
-        </li>
-        <li>
-          <Link to={`/category/${categoryName}/trouser`}>Trouser</Link>
-        </li>
-        <li>
-          <Link to={`/category/${categoryName}/jewellery`}>Jewellery</Link>
-        </li>
+        {/* Hardcoded item list for demonstration */}
+        <li><a href={`/category/${categoryId}/grooming`} onClick={(e) => handleItemClick("Grooming", e)}>Grooming</a></li>
+        <li><a href={`/category/${categoryId}/shirts`} onClick={(e) => handleItemClick("Shirt", e)}>Shirt</a></li>
+        <li><a href={`/category/${categoryId}/trousers`} onClick={(e) => handleItemClick("Trouser", e)}>Trouser</a></li>
+        <li><a href={`/category/${categoryId}/jewelry`} onClick={(e) => handleItemClick("Jewellery", e)}>Jewellery</a></li>
       </ul>
-      <Switch>
-        <Route path="/category/:categoryName/grooming">
-          <p>Grooming</p>
-        </Route>
-        <Route path="/category/:categoryName/shirt">
-          <p>Shirt</p>
-        </Route>
-        <Route path="/category/:categoryName/trouser">
-          <p>Trouser</p>
-        </Route>
-        <Route path="/category/:categoryName/jewellery">
-          <p>Jewellery</p>
-        </Route>
-      </Switch>
+      
+      {/* Render the selected item text in a paragraph tag */}
+      {selectedItem && (
+        <p>{selectedItem}</p>
+      )}
     </div>
   );
-}
+};
 
 export default Category;
