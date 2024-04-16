@@ -21,9 +21,7 @@ const Category = () => {
         <li><Link to={`/category/${categoryId}/trouser`} onClick={() => handleItemClick("Trousers")}>Trouser</Link></li>
         <li><Link to={`/category/${categoryId}/Jewellery`} onClick={() => handleItemClick("Jewellery")}>Jewellery</Link></li>
       </ul>
-      
-      {/* Render the selected item text in a paragraph tag */}
-      {selectedItem && (
+            {selectedItem && (
         <p>{selectedItem}</p>
       )}
     </div>
