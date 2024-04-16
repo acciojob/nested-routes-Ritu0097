@@ -6,23 +6,25 @@ import Topics from "./Topics.js";
 function App() {
   return (
     <BrowserRouter>
-    <main>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Index</Link>
-          </li>
-          <li>
-            <Link to="/women">Women</Link>
-          </li>
-        </ul>
-        <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/women/*"element={<Topics/>} />
-        </Routes>
-      </div>
+      <main>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/"><a>Index</a></Link>
+              </li>
+              <li>
+                <Link to="/women">Women</Link>
+              </li>
+            </ul>
+          </nav>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/women/*" element={<Topics />} />
+          </Routes>
+        </div>
       </main>
-      </BrowserRouter>
+    </BrowserRouter>
   );
 }
 export default App;
