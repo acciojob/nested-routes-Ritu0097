@@ -6,7 +6,6 @@ function Topics() {
   return (
     <div>
       <p>Items:</p>
-      <nav>
       <ul>
         <li>
           <Link to="Grooming">Grooming</Link>
@@ -21,7 +20,7 @@ function Topics() {
           <Link to="Jewellery">Jewellery</Link>
         </li>
       </ul>
-      </nav>
+
       <Routes>
         <Route path="/" element={<div>Please select a topic.</div>} />
         <Route path=":topicId" element={<Topic />} />
