@@ -1,14 +1,12 @@
-// Category.jsx
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const Category = () => {
-  const { categoryId, categoryItem } = useParams();
+  const { categoryId } = useParams();
+  
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // Handle item click
-  const handleItemClick = (item, e) => {
-    e.preventDefault(); // Prevent default link behavior
+  const handleItemClick = (item) => {
     setSelectedItem(item);
   };
 
@@ -18,10 +16,10 @@ const Category = () => {
       <p>Items:</p>
       <ul>
         {/* Hardcoded item list for demonstration */}
-        <li><a href={`/category/${categoryId}/grooming`} onClick={(e) => handleItemClick("Grooming", e)}>Grooming</a></li>
-        <li><a href={`/category/${categoryId}/shirts`} onClick={(e) => handleItemClick("Shirt", e)}>Shirt</a></li>
-        <li><a href={`/category/${categoryId}/trousers`} onClick={(e) => handleItemClick("Trouser", e)}>Trouser</a></li>
-        <li><a href={`/category/${categoryId}/jewelry`} onClick={(e) => handleItemClick("Jewellery", e)}>Jewellery</a></li>
+        <li><Link to={`/category/${categoryId}/grooming`} onClick={() => handleItemClick("Grooming")}>Grooming</Link></li>
+        <li><Link to={`/category/${categoryId}/shirt`} onClick={() => handleItemClick("Shirts")}>Shirt</Link></li>
+        <li><Link to={`/category/${categoryId}/trouser`} onClick={() => handleItemClick("Trousers")}>Trouser</Link></li>
+        <li><Link to={`/category/${categoryId}/Jewellery`} onClick={() => handleItemClick("Jewellery")}>Jewellery</Link></li>
       </ul>
       
       {/* Render the selected item text in a paragraph tag */}
