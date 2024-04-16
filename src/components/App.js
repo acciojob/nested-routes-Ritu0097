@@ -10,15 +10,15 @@ function App() {
       <div>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Index</Link>
           </li>
           <li>
-            <Link to="/Women">Women</Link>
+            <Link to="/women">Women</Link>
           </li>
         </ul>
         <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/Women/*"element={<Topics/>} />
+        <Route path="/women/*"element={<Topics/>} />
         </Routes>
       </div>
       </main>
