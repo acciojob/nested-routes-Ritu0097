@@ -1,21 +1,24 @@
-import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Layout from './Layout';
-import Home from './Home';
-import Category from './Category';
-import Item from './Item';
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import Topics from "./Topics.js";
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-      <Layout />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/category/:categoryId/" element={<Category />} />
-        <Route path="/item/:itemId" element={<Item />} />
-      </Routes>
-      </BrowserRouter>
-    </div>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/Items">Women</Link>
+          </li>
+        </ul>
+        <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/Items/*"element={<Topics/>} />
+        </Routes>
+      </div>
   );
 }
 export default App;
