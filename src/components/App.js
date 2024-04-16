@@ -5,6 +5,7 @@ import Home from "./Home";
 import Topics from "./Topics.js";
 function App() {
   return (
+    <main>
       <div>
         <ul>
           <li>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Women/*"element={<Topics/>} />
         </Routes>
       </div>
+      </main>
   );
 }
 export default App;
