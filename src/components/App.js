@@ -8,14 +8,16 @@ function App() {
     <BrowserRouter>
     <main>
       <div>
+      <nav>
         <ul>
           <li>
-            <Link to="/">Index</Link>
+            <a href="/">Home</a>
           </li>
           <li>
-            <Link to="/women">Women</Link>
+            <a href="/Women">Women</a>
           </li>
         </ul>
+        </nav>
         <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/women/*"element={<Topics/>} />
